@@ -3,17 +3,19 @@ html,html body{
 }
 html body{
     margin:0;
-    background:#0088fe
+    background:#aaffaf
 }
 html body #app,html body #app .container{
     height:100%
 }
 html body #app .container .top-app-bar{
-    background-color:#eee
+    background-color:rgb(0, 0, 0);
+    height: 100px;
 }
 html body #app .container .top-app-bar h6.title{
     flex-grow:1;
-    margin:10px
+    margin:10px;
+    text-align: center;
 }
 html body #app .container .top-app-bar .auth-toolbar{
     position:absolute;
@@ -23,12 +25,12 @@ html body #app .container .home-page{
     height:calc(100% - 84px)
 }
 html body #app .container .home-page .input-form{
-    height:1140px;
+    height:400px;
     padding:10px;
     background:#fff;
-    display:inline-block;
+    /* display:inline-block; */
     vertical-align:top;
-    width:350px
+    width:100%;
 }
 html body #app .container .home-page .input-form .name{
     margin-top:50px
@@ -173,4 +175,14 @@ html body #app .container .home-page .reports .report-container .stock-widget-co
 .login-page-container .form-container .form-change{
     color:#0088fe
 }
+
+.tradingview-widget-container {
+    margin: 40px !important;
+}
 /*# sourceMappingURL=main.d5dcc8ab7fe8a15b69c3.css.map*/
+
+.MuiFormGroup-root {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row !important;
+}

@@ -1,23 +1,21 @@
 import json
 from flask import Flask, request, Response, render_template
-import StockManager
+import StockService as stockservice
 from flask_cors import CORS, cross_origin
 import re
 import UserManager
 
+
 application = Flask(__name__)
+
+stock_service = stockservice.StockService()
+
 CORS(application)
 application.config['CORS_HEADERS'] = 'Content-Type'
 
-# This backend service serves following purpose
-# Serve front-end
-# Sign up and Login functionality
-# Allocate money in stocks
-
-
-@application.route('/allocate', methods=['POST'])
+@application.route('/getadvice', methods=['POST'])
 @cross_origin(origin='*')
-def allocate_stocks():
+def get_strategy_advice():
 
     amount = request.json['amount']
     if amount < 5000:
@@ -29,7 +27,7 @@ def allocate_stocks():
     if len(strategies) > 2:
         return json.dumps({"error": "Maximum two strategies can be selected together"}), 500
 
-    allocations = StockManager.allocate_stocks(amount, strategies)
+    allocations = stock_service.get_strategy_advice(amount, strategies)
 
     return json.dumps(allocations), 200
 
